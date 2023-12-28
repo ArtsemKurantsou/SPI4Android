@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "878950959448",
+    "project_id": "spi4android",
+    "storage_bucket": "spi4android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878950959448:android:709034a9e3a718eeb87d2d",
+        "android_client_info": {
+          "package_name": "com.kurantsov.spiforandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4_EVAeAo-2Rh8cDikgslHb_dWKkbLIu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
