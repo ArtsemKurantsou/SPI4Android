@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amazon="http://schemas.amazon.com/apk/res/android">
+
+    <permission
+        android:name="com.kurantsov.pushservice.permission.RECEIVE_ADM_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.kurantsov.pushservice.permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application>
+        <amazon:enable-feature
+            android:name="com.amazon.device.messaging"
+            android:required="false" />
+
+        <service
+            android:name=".AmazonMessageHandler"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".AmazonMessageLegacyHandler"
+            android:exported="false" />
+
+        <receiver
+            android:name=".AmazonPushReceiver"
+            android:exported="true"
+            android:permission="com.amazon.device.messaging.permission.SEND">
+
+            <!-- To interact with ADM, your app must listen for the following intents. -->
+            <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
+                <category android:name="com.kurantsov.pushservice" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

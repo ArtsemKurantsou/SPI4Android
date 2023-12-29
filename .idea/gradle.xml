@@ -11,8 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/pushservice" />
-            <option value="$PROJECT_DIR$/pushservice-firebase" />
+            <option value="$PROJECT_DIR$/push-service" />
+            <option value="$PROJECT_DIR$/push-service/amazon" />
+            <option value="$PROJECT_DIR$/push-service/core" />
+            <option value="$PROJECT_DIR$/push-service/firebase" />
           </set>
         </option>
       </GradleProjectSettings>
