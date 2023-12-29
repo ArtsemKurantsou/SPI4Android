@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/push-service" />
             <option value="$PROJECT_DIR$/push-service/amazon" />
+            <option value="$PROJECT_DIR$/push-service/baidu" />
             <option value="$PROJECT_DIR$/push-service/core" />
             <option value="$PROJECT_DIR$/push-service/firebase" />
             <option value="$PROJECT_DIR$/push-service/huawei" />

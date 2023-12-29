@@ -64,6 +64,8 @@ dependencies {
     implementation(project(":push-service:core"))
     implementation(project(":push-service:firebase"))
     implementation(project(":push-service:amazon"))
+    implementation(project(":push-service:huawei"))
+    implementation(project(":push-service:baidu"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
