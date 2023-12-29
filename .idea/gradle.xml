@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/push-service/amazon" />
             <option value="$PROJECT_DIR$/push-service/core" />
             <option value="$PROJECT_DIR$/push-service/firebase" />
+            <option value="$PROJECT_DIR$/push-service/huawei" />
           </set>
         </option>
       </GradleProjectSettings>
