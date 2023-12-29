@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SPI for Android"
 include(":app")
-include(":pushservice")
-include(":pushservice-firebase")
+include(":push-service:core")
+include(":push-service:firebase")
