@@ -3,6 +3,8 @@
 This repository contains example of the SPI (Service Provider Interface) usage in the Android
 application. The mechanism is demonstrated based on the push services implementation.
 
+More info on the SPI mechanism usage can be found in my article in [Medium](https://medium.com/@artsemkurantsou/9f712760df13).
+
 ## Repository structure
 
 The project contains several modules:
