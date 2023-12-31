@@ -14,6 +14,8 @@ object PushServiceManager {
     private val isInitialized: AtomicBoolean = AtomicBoolean(false)
     private val tokenChangedListeners: MutableSet<OnPushTokenChangedListener> =
         CopyOnWriteArraySet()
+    private val pushMessageListeners: MutableSet<OnPushMessageReceivedListener> =
+        CopyOnWriteArraySet()
     private var selectedPushServiceType: PushServiceType? = null
 
     fun initialize(context: Context) {
@@ -78,9 +80,11 @@ object PushServiceManager {
      */
     fun setPushToken(token: String, serviceType: PushServiceType) {
         if (selectedPushServiceType != serviceType) {
-            Log.w(TAG, "setPushToken called from unexpected implementation. " +
-                    "Selected implementation - ${selectedPushServiceType?.description}, " +
-                    "Called by - ${serviceType.description}")
+            Log.w(
+                TAG, "setPushToken called from unexpected implementation. " +
+                        "Selected implementation - ${selectedPushServiceType?.description}, " +
+                        "Called by - ${serviceType.description}"
+            )
             return
         }
         val initializedToken = PushToken.Initialized(token, serviceType)
@@ -95,6 +99,17 @@ object PushServiceManager {
      */
     fun processMessage(message: Map<String, String>, sender: String) {
         Log.d(TAG, "processMessage: sender - $sender, message - $message")
+        pushMessageListeners.forEach { listener ->
+            listener.onPushMessageReceived(message, sender)
+        }
+    }
+
+    fun addPushMessageListener(listener: OnPushMessageReceivedListener) {
+        pushMessageListeners.add(listener)
+    }
+
+    fun removePushMessageListener(listener: OnPushMessageReceivedListener) {
+        pushMessageListeners.remove(listener)
     }
 
 }
