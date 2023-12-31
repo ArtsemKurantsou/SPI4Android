@@ -63,9 +63,15 @@ dependencies {
 
     implementation(project(":push-service:core"))
     implementation(project(":push-service:firebase"))
-    implementation(project(":push-service:amazon"))
-    implementation(project(":push-service:huawei"))
-    implementation(project(":push-service:baidu"))
+    if (getBooleanProperty("amazon")) {
+        implementation(project(":push-service:amazon"))
+    }
+    if (getBooleanProperty("huawei")) {
+        implementation(project(":push-service:huawei"))
+    }
+    if (getBooleanProperty("baidu")) {
+        implementation(project(":push-service:baidu"))
+    }
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -74,4 +80,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+fun getBooleanProperty(propertyName: String): Boolean {
+    return properties[propertyName]?.toString()?.toBoolean() == true
 }
